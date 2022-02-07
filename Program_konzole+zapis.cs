@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 
 namespace _15___knp
@@ -18,17 +18,31 @@ namespace _15___knp
                 throw;
             }
 
-            Console.Write("\ntoto je hra kámen, nůžky, papír.\nkolik chcete hrát kol ?\n počet kol - ");
-            bool okola = int.TryParse(Console.ReadLine(), out int kola);
-            Zapis("\ntoto je hra kámen, nůžky, papír.\nkolik chcete hrát kol ?\n počet kol - " + kola);
+            Console.Write("\ntoto je hra kámen, nůžky, papír.");            
+            Zapis("\ntoto je hra kámen, nůžky, papír.");
             int skorehr = 0;
             int skorepc = 0;
+            int kola = 0;
             string zapis;
 
+
+            knp(false);
             
-            knp();
-            void knp() //hra
+            void knp(bool skip) //hra
             {
+
+                
+                if (!skip)
+                {
+                    Console.Write("kolik chcete hrát kol ? - ");
+                    bool okola = int.TryParse(Console.ReadLine(), out kola);
+                    Zapis("kolik chcete hrát kol ? - " + kola);
+
+                    skorehr = 0;
+                    skorepc = 0;
+                }
+
+                    
                 for (int i = 0; i < kola; i++)
                 {
                     Console.Write("\nmomentální skóre je [ " + skorehr + " | " + skorepc + " ]\nvyberte jednu z možností\n\n1 - kámen\n2 - nůžky\n3 - papír\n\n [ 1 | 2 | 3 ] - ");
@@ -115,14 +129,14 @@ namespace _15___knp
                         {
                             Console.WriteLine("\nvyberte číslo mezi 1 - 3\nzkuste to znovu");
                             Zapis("\nvyberte číslo mezi 1 - 3\nzkuste to znovu");
-                            knp();
+                            knp(false);
                         }
                     }
                     else
                     {
                         Console.WriteLine("\nvyberte 1, 2, 3\nzkuste to znovu.");
                         Zapis("\nvyberte 1, 2, 3\nzkuste to znovu.");
-                        knp();
+                        knp(false);
                     }
                 }
                 dalsihra();
@@ -154,7 +168,7 @@ namespace _15___knp
                 if (dlsv == "ano")
                 {
                     Console.Clear();
-                    knp();
+                    knp(true);
                 }
                 else { }
             }
