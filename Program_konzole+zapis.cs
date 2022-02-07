@@ -18,8 +18,8 @@ namespace _15___knp
                 throw;
             }
 
-            Console.Write("\ntoto je hra kámen, nůžky, papír.");            
-            Zapis("\ntoto je hra kámen, nůžky, papír.");
+            Console.Write("\ntoto je hra kámen, nůžky, papír. ");            
+            Zapis("\ntoto je hra kámen, nůžky, papír. ");
             int skorehr = 0;
             int skorepc = 0;
             int kola = 0;
@@ -129,14 +129,14 @@ namespace _15___knp
                         {
                             Console.WriteLine("\nvyberte číslo mezi 1 - 3\nzkuste to znovu");
                             Zapis("\nvyberte číslo mezi 1 - 3\nzkuste to znovu");
-                            knp(false);
+                            knp(true);
                         }
                     }
                     else
                     {
                         Console.WriteLine("\nvyberte 1, 2, 3\nzkuste to znovu.");
                         Zapis("\nvyberte 1, 2, 3\nzkuste to znovu.");
-                        knp(false);
+                        knp(true);
                     }
                 }
                 dalsihra();
@@ -145,7 +145,6 @@ namespace _15___knp
 
             void dalsihra() // hrát znovu ?
             {
-                Console.Clear();
                 Console.WriteLine("\nkonečné skóre je\n\nhráč      - " + skorehr + "\nprotihráč - " + skorepc);
                 if (skorehr == skorepc)
                 {
@@ -167,10 +166,10 @@ namespace _15___knp
                 string dlsv = Console.ReadLine();
                 if (dlsv == "ano")
                 {
-                    Console.Clear();
-                    knp(true);
+                    Console.Write("==================================================\n\n\n\n");
+                    Zapis("==================================================\n\n\n\n");
+                    knp(false);
                 }
-                else { }
             }
 
             void CreateFile()
